@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <title>URL Shortener</title>
+    </head>
+    <body>
+        <h1>URL Shortener</h1>
+        <label for="original_url">Enter your URL:</label>
+        <input type="url" id="original_url" required /><br />
+        <label for="custom_short_url">Custom Short URL (Optional):</label>
+        <input type="text" id="custom_short_url" /><br />
+        <button type="button" onclick="shortenURL()">Shorten</button>
+        <div id="shortened-url"></div>
+
+        <script>
+
+        async function shortenURL() {
+            var originalURL = document.getElementById('original_url').value;
+            var customShortURL = document.getElementById('custom_short_url').value;
+
+            try {
+                const response = await fetch('/shorten', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        original_url: originalURL,
+                        custom_short_url: customShortURL
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    var outputElement = document.getElementById('shortened-url');
+                    var shortenedURL = window.location.host + '/' + data.short_url;
+                    var linkElement = document.createElement('a');
+                    linkElement.href = data.short_url;
+                    linkElement.textContent = shortenedURL;
+                    outputElement.innerHTML = ''; // Clear existing content
+                    outputElement.appendChild(linkElement);
+                } else {
+                    const errorData = await response.json();
+                    alert(errorData.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        </script>
+    </body>
+</html>
