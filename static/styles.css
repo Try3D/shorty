@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    align-item: center;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.left-item {
+    display: flex;
+    width: 200px;
+}
+
+.right-item {
+    width: 300px;
+}

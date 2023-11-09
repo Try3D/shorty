@@ -5,13 +5,19 @@
 {% endblock %}
 
 {% block body %}
-    <h1>URL Shortener</h1>
+    <nav style="padding: 10px; text-align: center;"><h1>URL Shortener</h1></nav>
+
     <form id="url-shortener-form">
-        <p>Enter your URL:</p><label for="original_url"></label>
-        <input type="url" id="original_url" name="original_url" required /><br />
-        <label for="custom_short_url">Custom Short URL (Optional):</label>
-        <input type="text" id="custom_short_url" name="custom_short_url" /><br />
-        <input id="button" type="button" value="Shorten">
+        <div class="container input-group">
+            <span class="left-item input-group-text">Enter your URL:</span>
+            <input autocomplete="off" class="right-item form-control" type="url" id="original_url" name="original_url" required placeholder="https://example.com/" />
+            <input class="btn btn-outline-secondary" type="button" id="button" value="Generate">
+        </div>
+        <div class="container input-group">
+            <span class="left-item input-group-text">Custom URL (Optional):</span>
+            <input autocomplete="off" class="right-item form-control" type="text" id="custom_short_url" name="custom_short_url" placeholder="name" />
+        </div>
     </form>
-    <div id="shortened-url"></div>
+
+    <div class="input-group mb3" style="padding-left: 10vw;" id="shortened-url"></div>
 {% endblock %}
