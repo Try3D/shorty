@@ -2,6 +2,8 @@
 
 Its so simple. Just provide it an url and it will shorten it for you.
 
+![Image of the website](/docs/website.png)
+
 ## API Endpoint
 1. Shorten URL
 - Endpoint: `/shorten`
