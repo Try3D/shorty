@@ -2,7 +2,7 @@
 
 Its so simple. Just provide it an url and it will shorten it for you.
 
-![Image of the website](/docs/website.png)
+![website](https://github.com/Try3D/shorty/assets/94473657/3b6b9d61-f3f6-4833-829d-cdce51fcdba0)
 
 ## API Endpoint
 1. Shorten URL
